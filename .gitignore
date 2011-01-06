@@ -1,0 +1,15 @@
+obj
+bin
+out
+NDependOut*
+_cache
+_ReSharper.*
+*.user
+*.resharper
+*.ReSharper
+*.suo
+*.cache
+*.~
+SoftLattice*.wrap
+wraps/openwrap
+*.swp

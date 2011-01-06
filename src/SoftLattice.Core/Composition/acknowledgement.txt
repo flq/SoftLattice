@@ -1,0 +1,3 @@
+﻿The code contained herein is inspired or taken from hanselman's 
+blog post http://www.hanselman.com/blog/ExtendingNerdDinnerAddingMEFAndPluginsToASPNETMVC.aspx
+which in turn is based form work of Hammet in the MEF team.
