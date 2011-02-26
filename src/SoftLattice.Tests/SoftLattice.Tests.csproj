@@ -31,9 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="nunit.framework">
-      <HintPath>..\lib\nunit.framework.dll</HintPath>
-    </Reference>
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -56,19 +53,19 @@
     <Compile Include="Integration\UI\when_app_starts.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\SoftLattice.Common\SoftLattice.Common.csproj">
       <Project>{C142B92D-47BA-491F-8771-C10CAAB7FEA3}</Project>
-      <Name>SnarkyMark.Common</Name>
+      <Name>SoftLattice.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\SoftLattice.Core\SoftLattice.Core.csproj">
       <Project>{16B55A43-858C-48CB-9684-C4D30C0C390D}</Project>
-      <Name>SnarkyMark.Core</Name>
+      <Name>SoftLattice.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\..\wraps\openwrap\build\OpenWrap.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -1,7 +1,8 @@
 ﻿name: SoftLattice
 description: WPF-based UI Framework to provide a sophisticated starting point for nice WPF-Apps
 depends: openwrap anchored content
-build: msbuild;profile=net40;project=src\SoftLattice.Core\SoftLattice.Core.csproj;
+build: msbuild;profile=net40
 depends: StructureMap
 depends: caliburnmicro
 depends: MemBus
+depends: nunit
