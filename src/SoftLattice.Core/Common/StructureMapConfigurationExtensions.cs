@@ -6,7 +6,7 @@ namespace SoftLattice.Core.Common
     {
         public static void ScanLatticePluginAssemblies(this IAssemblyScanner scanner)
         {
-            
+            scanner.AssembliesFromApplicationBaseDirectory(a => a.FullName.Contains("LatticeGroup"));
         }
     }
 }
