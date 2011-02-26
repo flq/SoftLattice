@@ -31,13 +31,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
     <Reference Include="UIAutomationClient" />
+    <Reference Include="UIAutomationProvider" />
     <Reference Include="UIAutomationTypes" />
     <Reference Include="WindowsBase" />
   </ItemGroup>
@@ -47,10 +51,13 @@
     </Compile>
     <Compile Include="Frame\AppRunner.cs" />
     <Compile Include="Frame\AssertExtensions.cs" />
+    <Compile Include="Frame\AutomationSupport.cs" />
+    <Compile Include="Frame\PluginCompiler.cs" />
     <Compile Include="Frame\TestMessageListener.cs" />
     <Compile Include="Integration\UI\app_run_context.cs" />
-    <Compile Include="Plugin\Contributor.cs" />
+    <Compile Include="PluginA\Contributor.cs" />
     <Compile Include="Integration\UI\when_app_starts.cs" />
+    <Compile Include="PluginA\PluginAEntryViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
@@ -64,6 +71,12 @@
       <Project>{16B55A43-858C-48CB-9684-C4D30C0C390D}</Project>
       <Name>SoftLattice.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="PluginA\PluginAEntryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <Import Project="..\..\wraps\openwrap\build\OpenWrap.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

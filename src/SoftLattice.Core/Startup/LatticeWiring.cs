@@ -16,5 +16,10 @@ namespace SoftLattice.Core.Startup
         {
             _bus.Subscribe(listener);
         }
+
+        void ILatticeWiring.RegisterStartupView<T>()
+        {
+            
+        }
     }
 }

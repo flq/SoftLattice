@@ -1,4 +1,5 @@
 using System;
+using System.Reflection;
 using System.Threading;
 using System.Windows.Automation;
 using SoftLattice.Core;
@@ -13,6 +14,7 @@ namespace SoftLattice.Tests.Frame
         private AutomationElement _userApplicationElement;
 
         private Exception capturedException;
+        private readonly ProgrammaticStartupInfo info = new ProgrammaticStartupInfo();
 
         public AppRunner()
         {
@@ -21,8 +23,6 @@ namespace SoftLattice.Tests.Frame
                 try
                 {
                     app = new App();
-                    var info = new ProgrammaticStartupInfo();
-                    info.AddAssembly(GetType().Assembly);
                     app.Properties["override"] = info;
                     app.InitializeComponent();
                     app.Run();
@@ -59,10 +59,22 @@ namespace SoftLattice.Tests.Frame
             {
                 if (capturedException != null)
                     throw capturedException;
-                _userApplicationElement = aeDesktop.FindFirst(TreeScope.Children,
-                    new PropertyCondition(AutomationElement.AutomationIdProperty, "ShellView"));
+                _userApplicationElement = FindById("ShellView");
                 Thread.Sleep(500);
             } while ((_userApplicationElement == null || _userApplicationElement.Current.IsOffscreen));
+        }
+
+
+
+        public AutomationElement FindById(string id)
+        {
+            return AutomationElement.RootElement.FindFirst(TreeScope.Children, new PropertyCondition(AutomationElement.AutomationIdProperty, id));
+        }
+
+        public void AddPlugins(Assembly[] assemblies)
+        {
+            foreach (var a in assemblies)
+              info.AddAssembly(a);
         }
     }
 }

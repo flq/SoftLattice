@@ -11,5 +11,11 @@
         /// will be called.
         /// </summary>
         void RegisterMessageListener(object listener);
+
+        /// <summary>
+        /// If your group has a view to be shown on stratup (The start screen if yo wish), specify the corresponding viewmodel
+        /// through this method
+        /// </summary>
+        void RegisterStartupView<T>();
     }
 }

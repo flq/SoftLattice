@@ -19,24 +19,8 @@ namespace SoftLattice.Core.Startup
         protected override void Configure()
         {
             var info = (ProgrammaticStartupInfo)Application.Current.Properties["override"];
-            ObjectFactory.Initialize(i => {
-                i.AddRegistry<MainRegistry>();
-                i.Scan(s =>
-                           {
-                               s.AssembliesFromApplicationBaseDirectory(a => a.FullName.Contains("SnarkyPlugin"));
-                               if (info != null)
-                                   foreach (var a in info.PluginAssemblies)
-                                       s.Assembly(a);
-                               s.Convention<SnarkyPluginScan>();
-                           });
-            });
-            ObjectFactory.Configure(c =>
-            {
-                c.ForSingletonOf<IWindowManager>().Use(new WindowManager());
-                c.ForSingletonOf<IEventAggregator>().Use(new EventAggregator());
-            });
+            ObjectFactory.Initialize(i => i.AddRegistry(new MainRegistry(info)));
             container = ObjectFactory.Container;
-            //wireUpPlugins();
         }
 
         protected override object GetInstance(Type service, string key)

@@ -6,7 +6,7 @@ using StructureMap.Graph;
 
 namespace SoftLattice.Core.Startup
 {
-    public class SnarkyPluginScan : IRegistrationConvention
+    public class LatticeGroupScan : IRegistrationConvention
     {
         public void Process(Type type, Registry registry)
         {
