@@ -53,11 +53,9 @@
     <Compile Include="Frame\AssertExtensions.cs" />
     <Compile Include="Frame\AutomationSupport.cs" />
     <Compile Include="Frame\PluginCompiler.cs" />
-    <Compile Include="Frame\TestMessageListener.cs" />
     <Compile Include="Integration\UI\app_run_context.cs" />
-    <Compile Include="PluginA\Contributor.cs" />
     <Compile Include="Integration\UI\when_app_starts.cs" />
-    <Compile Include="PluginA\PluginAEntryViewModel.cs" />
+    <Compile Include="Thirdparty\StructuremapTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
@@ -71,12 +69,10 @@
       <Project>{16B55A43-858C-48CB-9684-C4D30C0C390D}</Project>
       <Name>SoftLattice.Core</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="PluginA\PluginAEntryView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
+    <ProjectReference Include="..\SoftLattice.PluginA\SoftLattice.PluginA.csproj">
+      <Project>{898310A8-4166-4767-A196-FC75659AF2C9}</Project>
+      <Name>SoftLattice.PluginA</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="..\..\wraps\openwrap\build\OpenWrap.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

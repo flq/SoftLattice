@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Reflection;
 using System.Threading;
 using System.Windows.Automation;
@@ -59,7 +60,12 @@ namespace SoftLattice.Tests.Frame
             {
                 if (capturedException != null)
                     throw capturedException;
-                _userApplicationElement = FindById("ShellView");
+
+                _userApplicationElement = AutomationElement.RootElement.FindFirst(TreeScope.Children,
+                                                                                  new PropertyCondition(
+                                                                                      AutomationElement.
+                                                                                          AutomationIdProperty,
+                                                                                      "ShellView"));
                 Thread.Sleep(500);
             } while ((_userApplicationElement == null || _userApplicationElement.Current.IsOffscreen));
         }
@@ -68,10 +74,10 @@ namespace SoftLattice.Tests.Frame
 
         public AutomationElement FindById(string id)
         {
-            return AutomationElement.RootElement.FindFirst(TreeScope.Children, new PropertyCondition(AutomationElement.AutomationIdProperty, id));
+            return _userApplicationElement.FindFirst(TreeScope.Descendants, new PropertyCondition(AutomationElement.AutomationIdProperty, id));
         }
 
-        public void AddPlugins(Assembly[] assemblies)
+        public void AddPlugins(IEnumerable<Assembly> assemblies)
         {
             foreach (var a in assemblies)
               info.AddAssembly(a);

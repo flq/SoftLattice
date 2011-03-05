@@ -1,6 +1,7 @@
 using System;
 using NUnit.Framework;
 using SoftLattice.Common;
+using SoftLattice.PluginA;
 using SoftLattice.Tests.Frame;
 
 namespace SoftLattice.Tests.Integration.UI
@@ -15,7 +16,7 @@ namespace SoftLattice.Tests.Integration.UI
         [Test]
         public void startup_message_is_received()
         {
-            TestMessageListener.Instance.Contains<StartupMsg>().ShouldBeTrue();
+            MessageListener.Instance.Contains<StartupMsg>().ShouldBeTrue();
         }
 
         [Test]

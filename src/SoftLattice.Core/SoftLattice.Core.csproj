@@ -73,16 +73,25 @@
       <DependentUpon>ShellView.xaml</DependentUpon>
     </Compile>
     <Compile Include="ApplicationShell\ShellViewModel.cs" />
+    <Compile Include="ApplicationShell\ViewActivationPump.cs" />
+    <Compile Include="Common\AssemblyLoader.cs" />
     <Compile Include="Common\MessageSender.cs" />
+    <Compile Include="Common\PluginDescriptor.cs" />
+    <Compile Include="Common\KnownPluginDescriptors.cs" />
     <Compile Include="Common\ProgrammaticStartupInfo.cs" />
+    <Compile Include="Common\PublishMessageImpl.cs" />
     <Compile Include="Common\ReflectionExtensions.cs" />
+    <Compile Include="Common\StartupRunner.cs" />
     <Compile Include="Common\StructureMapConfigurationExtensions.cs" />
+    <Compile Include="Common\UsefulExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup\ApplicationBootstrap.cs" />
     <Compile Include="Startup\MainRegistry.cs" />
-    <Compile Include="Startup\LatticeGroupScan.cs" />
+    <Compile Include="Startup\LatticeGroupRegistrationConvention.cs" />
     <Compile Include="Startup\LatticeWiring.cs" />
     <Compile Include="Startup\StructuremapBridge.cs" />
+    <Compile Include="Startup\WireUpInfrastructure.cs" />
+    <Compile Include="Startup\WireUpPlugins.cs" />
     <Page Include="ApplicationShell\ShellView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

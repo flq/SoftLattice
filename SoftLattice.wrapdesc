@@ -6,3 +6,4 @@ depends: StructureMap
 depends: caliburnmicro
 depends: MemBus
 depends: nunit
+depends: System.Reactive

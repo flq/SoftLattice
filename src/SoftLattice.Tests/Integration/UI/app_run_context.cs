@@ -1,4 +1,8 @@
-﻿using System.Windows.Automation;
+﻿using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Threading;
+using System.Windows.Automation;
 using NUnit.Framework;
 using SoftLattice.Common;
 using SoftLattice.Tests.Frame;
@@ -29,12 +33,11 @@ namespace SoftLattice.Tests.Integration.UI
 
         protected void LoadWithPlugins(params string[] plugin)
         {
-            var compiler = new PluginCompiler();
-            compiler
-                .ReferenceThisAssembly("SoftLattice.Tests.dll")
-                .ReferenceThisAssembly("SoftLattice.Common.dll")
-                .With(plugin);
-            appRunner.AddPlugins(compiler.Assemblies);
+            var result = from p in plugin
+                         let pluginDllName = "SoftLattice." + p + ".dll"
+                         where File.Exists(pluginDllName)
+                         select Assembly.LoadFrom(pluginDllName);
+            appRunner.AddPlugins(result);
         }
 
         protected AutomationElement FindByName(string name)

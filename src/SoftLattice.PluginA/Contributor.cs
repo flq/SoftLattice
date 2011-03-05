@@ -1,13 +1,12 @@
 using SoftLattice.Common;
-using SoftLattice.Tests.Frame;
 
-namespace SoftLattice.Tests.PluginA
+namespace SoftLattice.PluginA
 {
     public class Contributor : ILatticeGroup
     {
         public void Access(ILatticeWiring wiring)
         {
-            wiring.RegisterMessageListener(TestMessageListener.Instance);
+            wiring.RegisterMessageListener(MessageListener.Instance);
             wiring.RegisterStartupView<PluginAEntryViewModel>();
         }
     }

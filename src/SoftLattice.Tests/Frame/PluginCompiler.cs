@@ -29,7 +29,7 @@ namespace SoftLattice.Tests.Frame
             parms = new CompilerParameters
                       {
                           GenerateExecutable = false,
-                          GenerateInMemory = true
+                          GenerateInMemory = true,
                       };
         }
 

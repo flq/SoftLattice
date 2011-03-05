@@ -2,12 +2,12 @@
 using System.Collections.Concurrent;
 using System.Linq;
 
-namespace SoftLattice.Tests.Frame
+namespace SoftLattice.PluginA
 {
-    public class TestMessageListener
+    public class MessageListener
     {
-        private static TestMessageListener instance;
-        public static TestMessageListener Instance { get { return instance ?? (instance = new TestMessageListener()); } }
+        private static MessageListener instance;
+        public static MessageListener Instance { get { return instance ?? (instance = new MessageListener()); } }
 
         readonly ConcurrentBag<Tuple<DateTime, object>> messages = new ConcurrentBag<Tuple<DateTime, object>>();
 

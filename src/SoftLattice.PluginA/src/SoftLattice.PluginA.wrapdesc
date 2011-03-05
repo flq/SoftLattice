@@ -1,0 +1,2 @@
+﻿name: .\src\SoftLattice.PluginA
+depends: openwrap anchored content
