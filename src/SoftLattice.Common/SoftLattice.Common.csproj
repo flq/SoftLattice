@@ -42,7 +42,6 @@
     <Compile Include="ILatticeWiring.cs" />
     <Compile Include="IPublishMessage.cs" />
     <Compile Include="IStartup.cs" />
-    <Compile Include="MessageStreams\StreamOfActivatedViewModels.cs" />
     <Compile Include="Messages\ActivateViewModelMsg.cs" />
     <Compile Include="Messages\MessageAttribute.cs" />
     <Compile Include="Messages\ShutdownMsg.cs" />
