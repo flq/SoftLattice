@@ -78,6 +78,7 @@
     <Compile Include="Common\ProgrammaticStartupInfo.cs" />
     <Compile Include="Common\PublishMessageImpl.cs" />
     <Compile Include="Common\ReflectionExtensions.cs" />
+    <Compile Include="Common\ResourceServices.cs" />
     <Compile Include="Common\StartupRunner.cs" />
     <Compile Include="Common\StructureMapConfigurationExtensions.cs" />
     <Compile Include="Common\UsefulExtensions.cs" />

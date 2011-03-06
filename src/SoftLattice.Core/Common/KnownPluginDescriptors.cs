@@ -19,6 +19,7 @@ namespace SoftLattice.Core.Common
 
         private void onStartup(StartupMsg obj)
         {
+            
             var pd = _plugins.FirstOrDefault(p => p.TypeOfStartupView != null);
             if (pd != null)
                 _bus.Publish(new ActivateViewModelMsg(pd.TypeOfStartupView));

@@ -1,4 +1,5 @@
 using System;
+using System.Windows.Automation;
 using NUnit.Framework;
 using SoftLattice.Common;
 using SoftLattice.PluginA;
@@ -25,5 +26,15 @@ namespace SoftLattice.Tests.Integration.UI
             var start = FindByName("PluginAEntryView");
             start.ShouldNotBeNull();
         }
+
+        [Test]
+        public void the_resource_provided_by_plugin_is_added_to_the_system()
+        {
+            var text = GetTextFromElement("StyledTextbox");
+            text.ShouldNotBeNull();
+            text.ShouldBeEqualTo("FromResource");
+        }
+
+
     }
 }

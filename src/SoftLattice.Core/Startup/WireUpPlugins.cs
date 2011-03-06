@@ -23,6 +23,7 @@ namespace SoftLattice.Core.Startup
             foreach (var grp in _groups)
             {
                 var wiring = _wiring();
+                wiring.SetPluginAssembly(grp.GetType().Assembly);
                 grp.Access(wiring);
                 _knownPluginDescriptors.Add(wiring.ConstructedPluginDescriptor);
             }

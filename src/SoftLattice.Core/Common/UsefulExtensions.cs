@@ -1,4 +1,6 @@
+using System;
 using System.Reflection;
+using System.Windows;
 
 namespace SoftLattice.Core.Common
 {
@@ -12,6 +14,20 @@ namespace SoftLattice.Core.Common
         public static bool IsSoftLatticeAssembly(this string assemblyFileName)
         {
             return assemblyFileName.Contains("SoftLattice");
+        }
+
+        /// <summary>
+        /// Kindly taken from http://marcmelvin.com/?p=70
+        /// </summary>
+        public static void AddAssemblyResource(this Application app, string assemblyName, string path)
+        {
+            if (!UriParser.IsKnownScheme("pack"))
+                UriParser.Register(new GenericUriParser(GenericUriParserOptions.GenericAuthority), "pack", -1);
+
+            var dict = new ResourceDictionary();
+            var uri = new Uri("/" + assemblyName + ";component/" + path, UriKind.Relative);
+            dict.Source = uri;
+            app.Resources.MergedDictionaries.Add(dict);
         }
     }
 }

@@ -24,6 +24,7 @@ namespace SoftLattice.Core.Startup
             ForSingletonOf<IEventAggregator>().Use(new EventAggregator());
             ForSingletonOf<KnownPluginDescriptors>().Use<KnownPluginDescriptors>();
             ForSingletonOf<ViewActivationPump>().Use<ViewActivationPump>();
+            ForSingletonOf<IResourceServices>().Use<ResourceServices>();
 
             For(typeof(IObservable<>)).Use(typeof(MessageObservable<>));
             

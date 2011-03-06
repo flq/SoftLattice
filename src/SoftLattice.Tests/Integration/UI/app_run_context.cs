@@ -40,9 +40,17 @@ namespace SoftLattice.Tests.Integration.UI
             appRunner.AddPlugins(result);
         }
 
-        protected AutomationElement FindByName(string name)
+        protected AutomationElement FindByName(string automationId)
         {
-            return appRunner.FindById(name);
+            return appRunner.FindByAutomationId(automationId);
+        }
+
+        protected string GetTextFromElement(string automationId)
+        {
+            var textPattern = appRunner.GetTextPattern(automationId);
+            if (textPattern == null)
+                return null;
+            return textPattern.DocumentRange.GetText(-1);
         }
     }
 }

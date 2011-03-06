@@ -7,6 +7,7 @@ namespace SoftLattice.PluginA
         public void Access(ILatticeWiring wiring)
         {
             wiring.RegisterMessageListener(MessageListener.Instance);
+            wiring.AddResource("Plugin.xaml");
             wiring.RegisterStartupView<PluginAEntryViewModel>();
         }
     }

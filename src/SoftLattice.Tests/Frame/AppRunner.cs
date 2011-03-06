@@ -72,9 +72,19 @@ namespace SoftLattice.Tests.Frame
 
 
 
-        public AutomationElement FindById(string id)
+        public AutomationElement FindByAutomationId(string id)
         {
             return _userApplicationElement.FindFirst(TreeScope.Descendants, new PropertyCondition(AutomationElement.AutomationIdProperty, id));
+        }
+
+        public TextPattern GetTextPattern(string automationId)
+        {
+            var ele = FindByAutomationId(automationId);
+            object da;
+            if (ele == null)
+                return null;
+            ele.TryGetCurrentPattern(TextPattern.Pattern, out da);
+            return da as TextPattern;
         }
 
         public void AddPlugins(IEnumerable<Assembly> assemblies)

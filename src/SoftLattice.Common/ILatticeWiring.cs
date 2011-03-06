@@ -17,5 +17,12 @@
         /// through this method
         /// </summary>
         void RegisterStartupView<T>();
+
+        /// <summary>
+        /// Allows your plugin to add resources to the SoftLattice runtime. Please consider that SoftLattice may be running
+        /// several plugins, hence put yourself in the habit of prefixing your resource keys with some identifier related to your plugin
+        /// to avoid naming collisions.
+        /// </summary>
+        void AddResource(string relativePath);
     }
 }

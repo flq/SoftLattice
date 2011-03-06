@@ -1,3 +1,5 @@
+using System;
+using System.Reflection;
 using MemBus;
 using SoftLattice.Common;
 using SoftLattice.Core.Common;
@@ -25,6 +27,16 @@ namespace SoftLattice.Core.Startup
             _pluginDescriptor.AddStartupView<T>();
         }
 
+        void ILatticeWiring.AddResource(string relativePath)
+        {
+            _pluginDescriptor.AddResource(relativePath);
+        }
+
         internal PluginDescriptor ConstructedPluginDescriptor { get { return _pluginDescriptor;  } }
+
+        internal void SetPluginAssembly(Assembly assembly)
+        {
+            _pluginDescriptor.SetPluginAssembly(assembly);
+        }
     }
 }
