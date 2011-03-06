@@ -5,7 +5,6 @@ using System.Reflection;
 using System.Windows;
 using Caliburn.Micro;
 using MemBus;
-using MemBus.Support;
 using SoftLattice.Common;
 using SoftLattice.Core.ApplicationShell;
 using SoftLattice.Core.Common;
@@ -17,29 +16,6 @@ namespace SoftLattice.Core.Startup
     {
         private IContainer container;
         private readonly AssemblyLoader _assemblyLoader = new AssemblyLoader();
-
-        public AppBootstrap()
-        {
-          ViewLocator.LocateTypeForModelType  = (modelType, displayLocation, context) => {
-            var viewTypeName = modelType.FullName.Substring(0, modelType.FullName.IndexOf("`") < 0
-                ? modelType.FullName.Length
-                : modelType.FullName.IndexOf("`")
-                ).Replace("Model", string.Empty);
-
-            if (context != null)
-            {
-                viewTypeName = viewTypeName.Remove(viewTypeName.Length - 4, 4);
-                viewTypeName = viewTypeName + "." + context;
-            }
-
-            var viewType = (from assmebly in AssemblySource.Instance
-                            from type in assmebly.GetExportedTypes()
-                            where type.FullName == viewTypeName
-                            select type).FirstOrDefault();
-
-            return viewType;
-        };
-        }
 
         protected override void Configure()
         {

@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftLattice.Common", "SoftL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftLattice.PluginA", "SoftLattice.PluginA\SoftLattice.PluginA.csproj", "{898310A8-4166-4767-A196-FC75659AF2C9}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PluginsForTesting", "PluginsForTesting", "{8733DAF0-6E3B-4F3C-93D1-B897C966A13B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,5 +69,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{898310A8-4166-4767-A196-FC75659AF2C9} = {8733DAF0-6E3B-4F3C-93D1-B897C966A13B}
 	EndGlobalSection
 EndGlobal

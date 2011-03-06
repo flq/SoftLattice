@@ -69,9 +69,6 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="ApplicationShell\ShellView.xaml.cs">
-      <DependentUpon>ShellView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ApplicationShell\ShellViewModel.cs" />
     <Compile Include="ApplicationShell\ViewActivationPump.cs" />
     <Compile Include="Common\AssemblyLoader.cs" />
@@ -115,7 +112,7 @@
   <ItemGroup>
     <ProjectReference Include="..\SoftLattice.Common\SoftLattice.Common.csproj">
       <Project>{C142B92D-47BA-491F-8771-C10CAAB7FEA3}</Project>
-      <Name>SnarkyMark.Common</Name>
+      <Name>SoftLattice.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="..\..\wraps\openwrap\build\OpenWrap.CSharp.targets" />
