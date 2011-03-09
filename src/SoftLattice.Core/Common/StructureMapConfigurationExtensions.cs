@@ -1,3 +1,4 @@
+using SoftLattice.Common;
 using StructureMap.Configuration.DSL;
 using StructureMap.Graph;
 
@@ -17,10 +18,18 @@ namespace SoftLattice.Core.Common
                     scanner.Assembly(a);
         }
 
-        public static void LatticeAssembliesAndStartupInfo(this IAssemblyScanner scanner, ProgrammaticStartupInfo info)
+        public static void LatticeAssemblies(this IAssemblyScanner scanner, ProgrammaticStartupInfo info)
         {
-            scanner.ScanLatticePluginAssemblies();
-            scanner.AssembliesFromStartupInfo(info);
+            if (info != null)
+            {
+                scanner.AssembliesFromStartupInfo(info);
+                scanner.AssemblyContainingType<StartupRunner>();
+                scanner.AssemblyContainingType<ILatticeGroup>();
+            }
+            else
+            {
+                scanner.ScanLatticePluginAssemblies();
+            }
         }
 
         public static void Delegate<FROM,TO>(this Registry registry) where TO : FROM

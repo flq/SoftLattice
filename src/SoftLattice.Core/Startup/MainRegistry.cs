@@ -59,7 +59,7 @@ namespace SoftLattice.Core.Startup
         {
             Scan(s =>
                      {
-                         s.LatticeAssembliesAndStartupInfo(_info);
+                         s.LatticeAssemblies(_info);
                          scannerAction(s);
                      });
         }
