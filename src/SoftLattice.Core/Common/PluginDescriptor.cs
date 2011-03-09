@@ -14,13 +14,6 @@ namespace SoftLattice.Core.Common
             _resourceService = resourceService;
         }
 
-        internal Type TypeOfStartupView { get; private set; }
-
-        internal void AddStartupView<T>()
-        {
-            TypeOfStartupView = typeof (T);
-        }
-
         internal void SetPluginAssembly(Assembly assembly)
         {
             _assembly = assembly;

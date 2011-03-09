@@ -2,6 +2,8 @@ using System;
 using Caliburn.Micro;
 using MemBus;
 using MemBus.Configurators;
+using MemBus.Publishing;
+using MemBus.Setup;
 using MemBus.Subscribing;
 using SoftLattice.Common;
 using SoftLattice.Core.ApplicationShell;
@@ -25,6 +27,8 @@ namespace SoftLattice.Core.Startup
             ForSingletonOf<KnownPluginDescriptors>().Use<KnownPluginDescriptors>();
             ForSingletonOf<ViewActivationPump>().Use<ViewActivationPump>();
             ForSingletonOf<IResourceServices>().Use<ResourceServices>();
+
+            For<IPublishMessage>().Use<PublishMessageImpl>();
 
             For(typeof(IObservable<>)).Use(typeof(MessageObservable<>));
             
@@ -65,7 +69,21 @@ namespace SoftLattice.Core.Startup
             return BusSetup.StartWith<AsyncRichClientFrontend>(
                 new IoCSupport(new StructuremapBridge(() => ObjectFactory.Container)))
                 .Apply<FlexibleSubscribeAdapter>(c=>c.ByMethodName("Handle").ByInterface(typeof(IHandles<>)))
+                .Apply<PublisherConfiguration>()
                 .Construct();
+        }
+
+        private class PublisherConfiguration : ISetup<IConfigurableBus>
+        {
+            public void Accept(IConfigurableBus setup)
+            {
+                setup.ConfigurePublishing(PublishingSerializedForMessage<ActivateViewModelMsg>);
+            }
+
+            private static void PublishingSerializedForMessage<T>(IConfigurablePublishing obj)
+            {
+                obj.MessageMatch(mi=>mi.IsType<T>()).PublishPipeline(new SequentialPublisher());
+            }
         }
     }
 }

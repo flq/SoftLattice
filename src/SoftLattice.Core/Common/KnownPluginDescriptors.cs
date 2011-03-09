@@ -1,8 +1,5 @@
-using System;
 using System.Collections.Generic;
 using MemBus;
-using SoftLattice.Common;
-using System.Linq;
 
 namespace SoftLattice.Core.Common
 {
@@ -14,15 +11,6 @@ namespace SoftLattice.Core.Common
         public KnownPluginDescriptors(IBus bus)
         {
             _bus = bus;
-            bus.Subscribe<StartupMsg>(onStartup);
-        }
-
-        private void onStartup(StartupMsg obj)
-        {
-            
-            var pd = _plugins.FirstOrDefault(p => p.TypeOfStartupView != null);
-            if (pd != null)
-                _bus.Publish(new ActivateViewModelMsg(pd.TypeOfStartupView));
         }
 
         internal void Add(PluginDescriptor pluginDescriptor)

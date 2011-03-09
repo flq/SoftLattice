@@ -22,11 +22,6 @@ namespace SoftLattice.Core.Startup
             _bus.Subscribe(listener);
         }
 
-        void ILatticeWiring.RegisterStartupView<T>()
-        {
-            _pluginDescriptor.AddStartupView<T>();
-        }
-
         void ILatticeWiring.AddResource(string relativePath)
         {
             _pluginDescriptor.AddResource(relativePath);
