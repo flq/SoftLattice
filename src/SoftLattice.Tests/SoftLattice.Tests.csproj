@@ -50,12 +50,14 @@
       <Link>CommonAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Frame\AppRunner.cs" />
+    <Compile Include="Frame\AssemblyLoadExtensions.cs" />
     <Compile Include="Frame\AssertExtensions.cs" />
     <Compile Include="Frame\AutomationSupport.cs" />
     <Compile Include="Frame\PluginCompiler.cs" />
     <Compile Include="Integration\UI\app_run_context.cs" />
     <Compile Include="Integration\UI\when_app_starts.cs" />
     <Compile Include="Thirdparty\StructuremapTests.cs" />
+    <Compile Include="Unit\ResourceReaderTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

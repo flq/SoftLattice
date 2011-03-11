@@ -52,6 +52,10 @@
     <Compile Include="MessageListener.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="LookupResources\MoreRes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Plugin.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

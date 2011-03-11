@@ -34,9 +34,9 @@ namespace SoftLattice.Tests.Integration.UI
         protected void LoadWithPlugins(params string[] plugin)
         {
             var result = from p in plugin
-                         let pluginDllName = "SoftLattice." + p + ".dll"
-                         where File.Exists(pluginDllName)
-                         select Assembly.LoadFrom(pluginDllName);
+                         let asm = p.Load()
+                         where asm != null
+                         select asm;
             appRunner.AddPlugins(result);
         }
 

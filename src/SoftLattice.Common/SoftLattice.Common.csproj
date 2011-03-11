@@ -31,8 +31,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\CommonAssemblyInfo.cs">
@@ -41,12 +44,13 @@
     <Compile Include="ILatticeGroup.cs" />
     <Compile Include="ILatticeWiring.cs" />
     <Compile Include="IPublishMessage.cs" />
-    <Compile Include="IResourceServices.cs" />
+    <Compile Include="Resources\IResourceServices.cs" />
     <Compile Include="IStartup.cs" />
     <Compile Include="Messages\ActivateViewModelMsg.cs" />
     <Compile Include="Messages\MessageAttribute.cs" />
     <Compile Include="Messages\ShutdownMsg.cs" />
     <Compile Include="Messages\StartupMsg.cs" />
+    <Compile Include="Resources\ResourceLoader.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

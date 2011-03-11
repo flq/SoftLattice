@@ -17,7 +17,7 @@ namespace SoftLattice.Core.Common
         }
 
         /// <summary>
-        /// Kindly taken from http://marcmelvin.com/?p=70
+        /// Kindly taken from http://marcmelvin.com/?p=70. Adds a ResourceDictionary to the current application
         /// </summary>
         public static void AddAssemblyResource(this Application app, string assemblyName, string path)
         {

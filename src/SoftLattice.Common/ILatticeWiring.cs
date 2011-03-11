@@ -1,4 +1,6 @@
-﻿namespace SoftLattice.Common
+﻿using System;
+
+namespace SoftLattice.Common
 {
     /// <summary>
     /// Access to the Software Lattice wiring
@@ -19,5 +21,14 @@
         /// to avoid naming collisions.
         /// </summary>
         void AddResource(string relativePath);
+
+        /// <summary>
+        /// Provide a function that decides upon a passed in path to resources in your assembly whether you want it included or not.
+        /// All resources compiled as page are found in your pluginassembly and the corresponding file passed in to the predicate
+        /// The path is not identical to the filesystem path:
+        /// * It is all lowercase
+        /// * The .xaml extension is removed
+        /// </summary>
+        void AddResources(Func<string, bool> pathPredicate);
     }
 }

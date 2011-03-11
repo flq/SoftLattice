@@ -1,4 +1,5 @@
 using System;
+using System.Windows;
 using Caliburn.Micro;
 using MemBus;
 using MemBus.Configurators;
@@ -6,6 +7,7 @@ using MemBus.Publishing;
 using MemBus.Setup;
 using MemBus.Subscribing;
 using SoftLattice.Common;
+using SoftLattice.Common.Resources;
 using SoftLattice.Core.ApplicationShell;
 using SoftLattice.Core.Common;
 using StructureMap;
@@ -27,6 +29,7 @@ namespace SoftLattice.Core.Startup
             ForSingletonOf<KnownPluginDescriptors>().Use<KnownPluginDescriptors>();
             ForSingletonOf<ViewActivationPump>().Use<ViewActivationPump>();
             ForSingletonOf<IResourceServices>().Use<ResourceServices>();
+            For<Application>().Use(Application.Current);
 
             For<IPublishMessage>().Use<PublishMessageImpl>();
 

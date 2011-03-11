@@ -35,6 +35,14 @@ namespace SoftLattice.Tests.Integration.UI
             text.ShouldBeEqualTo("FromResource");
         }
 
+        [Test]
+        public void the_resource_from_lookup_is_correctly_loaded()
+        {
+            var text = GetTextFromElement("StyledTextboxFromLookup");
+            text.ShouldNotBeNull();
+            text.ShouldBeEqualTo("FromLookupResource");
+        }
+
 
     }
 }

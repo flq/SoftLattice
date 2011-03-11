@@ -1,14 +1,13 @@
-using System;
-using System.Windows;
-using SoftLattice.Common;
+using System.Reflection;
+using SoftLattice.Common.Resources;
 
 namespace SoftLattice.Core.Common
 {
     public class ResourceServices : IResourceServices
     {
-        public void AddResource(string assemblyName, string relativePath)
+        public ResourceLoader GetLoaderFor(Assembly assembly)
         {
-            Application.Current.AddAssemblyResource(assemblyName, relativePath);
+            return new ResourceLoader(assembly);
         }
     }
 }

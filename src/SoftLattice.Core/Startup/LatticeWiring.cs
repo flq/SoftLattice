@@ -27,6 +27,11 @@ namespace SoftLattice.Core.Startup
             _pluginDescriptor.AddResource(relativePath);
         }
 
+        public void AddResources(Func<string, bool> pathPredicate)
+        {
+            _pluginDescriptor.AddResource(pathPredicate);
+        }
+
         internal PluginDescriptor ConstructedPluginDescriptor { get { return _pluginDescriptor;  } }
 
         internal void SetPluginAssembly(Assembly assembly)
