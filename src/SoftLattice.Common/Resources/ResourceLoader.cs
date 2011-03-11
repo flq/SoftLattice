@@ -35,7 +35,7 @@ namespace SoftLattice.Common.Resources
 
         /// <summary>
         /// Kindly taken from http://marcmelvin.com/?p=70. 
-        /// Adds a ResourceDictionary to an application. Requires a valid application
+        /// Returns a ResourceDictionary based on a relative path
         /// </summary>
         public ResourceDictionary GetDictionary(string path)
         {
