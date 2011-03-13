@@ -16,6 +16,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftLattice.PluginA", "Soft
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PluginsForTesting", "PluginsForTesting", "{8733DAF0-6E3B-4F3C-93D1-B897C966A13B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Themes", "Themes", "{E88E9849-2A25-4889-828D-75B568118C6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftLattice.DarkTheme", "SoftLattice.DarkTheme\SoftLattice.DarkTheme.csproj", "{5C8D58FF-1E0F-4F87-89EC-20EDC05DE093}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -66,11 +70,22 @@ Global
 		{898310A8-4166-4767-A196-FC75659AF2C9}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{898310A8-4166-4767-A196-FC75659AF2C9}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{898310A8-4166-4767-A196-FC75659AF2C9}.Release|x86.ActiveCfg = Release|Any CPU
+		{5C8D58FF-1E0F-4F87-89EC-20EDC05DE093}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C8D58FF-1E0F-4F87-89EC-20EDC05DE093}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C8D58FF-1E0F-4F87-89EC-20EDC05DE093}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{5C8D58FF-1E0F-4F87-89EC-20EDC05DE093}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{5C8D58FF-1E0F-4F87-89EC-20EDC05DE093}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5C8D58FF-1E0F-4F87-89EC-20EDC05DE093}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C8D58FF-1E0F-4F87-89EC-20EDC05DE093}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C8D58FF-1E0F-4F87-89EC-20EDC05DE093}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{5C8D58FF-1E0F-4F87-89EC-20EDC05DE093}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{5C8D58FF-1E0F-4F87-89EC-20EDC05DE093}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{898310A8-4166-4767-A196-FC75659AF2C9} = {8733DAF0-6E3B-4F3C-93D1-B897C966A13B}
+		{5C8D58FF-1E0F-4F87-89EC-20EDC05DE093} = {E88E9849-2A25-4889-828D-75B568118C6D}
 	EndGlobalSection
 EndGlobal

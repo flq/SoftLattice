@@ -1,0 +1,85 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="StandardControls"
+	x:Name="UserControl"
+    Background="Black"
+	d:DesignWidth="640" d:DesignHeight="480">
+    <x:Code>
+        <![CDATA[ public StandardControls() { InitializeComponent(); } ]]>
+    </x:Code>
+	<UserControl.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="Theme.xaml"/>
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</UserControl.Resources>
+
+	<Grid x:Name="LayoutRoot">
+		<Grid Margin="0">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+			</Grid.ColumnDefinitions>
+			<StackPanel Orientation="Horizontal" Margin="5">
+				<Label Content="Label"/>
+				<TextBox Text="TextBox" TextWrapping="Wrap"/>
+			</StackPanel>
+			<DockPanel Grid.Column="2" Grid.Row="2">
+				<StackPanel Margin="5"  Orientation="Horizontal" DockPanel.Dock="Top">
+					<Button HorizontalAlignment="Left" Content="A clickable button" HorizontalContentAlignment="Stretch" Margin="5" />
+					<ToggleButton HorizontalAlignment="Left" Content="Toggle Button" Margin="5" />
+				</StackPanel>
+				<ContentPresenter HorizontalAlignment="Left" Height="180.06" />
+			</DockPanel>
+			<StackPanel Orientation="Vertical" Grid.Row="1" Margin="5">
+			  <RadioButton GroupName="A" Content="Option A" />
+			  <RadioButton GroupName="A" Content="Option B" />
+			  <RadioButton GroupName="A" Content="Option C" />
+			</StackPanel>
+			<CheckBox HorizontalAlignment="Left" VerticalAlignment="Top" Content="CheckBox" Grid.Row="1" Grid.Column="1" Margin="5" IsChecked="True"/>
+			<TreeView Grid.Row="2" Grid.Column="0" Margin="5">
+			  <TreeViewItem Header="The one" IsExpanded="true">
+			    <TreeViewItem Header="The child" />
+				<TreeViewItem Header="The second child">
+				  <TreeViewItem Header="The grandson" />
+				</TreeViewItem>
+			  </TreeViewItem>
+			</TreeView>
+			<ListBox Grid.Column="1" Grid.Row="2" Margin="5">
+			  <ListBoxItem>Foo</ListBoxItem>
+			  <ListBoxItem>Bar</ListBoxItem>
+			  <ListBoxItem>Baz</ListBoxItem>
+			</ListBox>
+			<ComboBox Grid.Column="2" Grid.Row="0" Margin="5">
+			  <ComboBoxItem>Tinky</ComboBoxItem>
+			  <ComboBoxItem>Winky</ComboBoxItem>
+			  <ComboBoxItem>Lala</ComboBoxItem>
+			</ComboBox>
+			<DockPanel Margin="5" Grid.Column="2" Grid.Row="1">
+			  <ScrollBar HorizontalAlignment="Right" DockPanel.Dock="Right"/>
+			  <Expander Header="Expand" IsExpanded="True">
+			    <ComboBox Margin="5">
+			      <ComboBoxItem>Tinky</ComboBoxItem>
+				  <ComboBoxItem>Winky</ComboBoxItem>
+				  <ComboBoxItem>Lala</ComboBoxItem>
+				</ComboBox>
+			  </Expander>
+			</DockPanel>
+			
+			<ToolBar Grid.Column="1" d:LayoutOverrides="Height" Grid.ColumnSpan="2">
+			  <Button>H</Button>
+			</ToolBar>
+		</Grid>
+	</Grid>
+</UserControl>

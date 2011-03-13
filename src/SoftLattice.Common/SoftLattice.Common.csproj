@@ -51,6 +51,7 @@
     <Compile Include="Messages\ShutdownMsg.cs" />
     <Compile Include="Messages\StartupMsg.cs" />
     <Compile Include="Resources\ResourceLoader.cs" />
+    <Compile Include="WpfPrimitivesExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
