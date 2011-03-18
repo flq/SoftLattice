@@ -41,8 +41,8 @@ namespace SoftLattice.Common.Resources
         {
             if (!UriParser.IsKnownScheme("pack"))
                 UriParser.Register(new GenericUriParser(GenericUriParserOptions.GenericAuthority), "pack", -1);
-
             var dict = new ResourceDictionary();
+            
             var uri = new Uri("/" + _assembly.GetName().Name + ";component/" + path, UriKind.Relative);
             dict.Source = uri;
             return dict;

@@ -1,6 +1,7 @@
 using System;
 using MemBus;
 using SoftLattice.Common;
+using SoftLattice.Common.Resources;
 using SoftLattice.Core.ApplicationShell;
 
 namespace SoftLattice.Core.Startup
@@ -16,10 +17,11 @@ namespace SoftLattice.Core.Startup
         private readonly ISubscriber _subscriber;
         private readonly ViewActivationPump _pump;
 
-        public WireUpInfrastructure(ISubscriber subscriber, ViewActivationPump pump)
+        public WireUpInfrastructure(ISubscriber subscriber, ViewActivationPump pump, IResourceServices services)
         {
             _subscriber = subscriber;
             _pump = pump;
+            LatticeTemplateSelector.SetResourceServices(services);
         }
 
         public void Start()

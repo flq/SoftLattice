@@ -1,0 +1,64 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <DoubleAnimationUsingKeyFrames x:Key="InteractionButton.GradientTimeline" RepeatBehavior="Forever" Duration="0:0:5">
+        <DoubleAnimationUsingKeyFrames.KeyFrames>
+            <SplineDoubleKeyFrame Value="0.2" KeyTime="0" />
+            <SplineDoubleKeyFrame Value="0.7" KeyTime="30%" />
+            <SplineDoubleKeyFrame Value="0.4" KeyTime="40%" />
+            <SplineDoubleKeyFrame Value="0.2" KeyTime="50%" />
+            <SplineDoubleKeyFrame Value="0.05" KeyTime="70%" />
+            <SplineDoubleKeyFrame Value="0.15" KeyTime="90%" />
+            <SplineDoubleKeyFrame Value="0.2" KeyTime="100%" />
+        </DoubleAnimationUsingKeyFrames.KeyFrames>
+    </DoubleAnimationUsingKeyFrames>
+    
+    <Storyboard x:Key="InteractionButton.Open">
+        <DoubleAnimation From="0" To="1" Duration="0:0:0.2" Storyboard.TargetName="popupBorder" Storyboard.TargetProperty="LayoutTransform.ScaleX" />
+        <DoubleAnimation From="0" To="1" Duration="0:0:0.2" Storyboard.TargetName="popupBorder" Storyboard.TargetProperty="LayoutTransform.ScaleY" />
+    </Storyboard>
+    <Storyboard x:Key="InteractionButton.Close">
+        <DoubleAnimation From="1" To="0" Duration="0:0:0.2" Storyboard.TargetName="popupBorder" Storyboard.TargetProperty="LayoutTransform.ScaleX" />
+        <DoubleAnimation From="1" To="0" Duration="0:0:0.2" Storyboard.TargetName="popupBorder" Storyboard.TargetProperty="LayoutTransform.ScaleY" />
+    </Storyboard>
+
+    <Pen Brush="Black" Thickness="1" x:Key="InteractionButton.Pen" />
+
+    <RadialGradientBrush x:Key="attentionbutton_info">
+        <GradientStop Color="LightBlue" Offset="0.0" />
+        <GradientStop Color="Blue" Offset="0.3" />
+        <GradientStop Color="Indigo" Offset="0.9" />
+    </RadialGradientBrush>
+    
+    <RadialGradientBrush x:Key="InteractionButton.Warning">
+        <GradientStop Color="LightGreen" Offset="0.0" />
+        <GradientStop Color="LightGreen" Offset="0.3" />
+        <GradientStop Color="Green" Offset="0.9" />
+    </RadialGradientBrush>
+    
+    <RadialGradientBrush x:Key="InteractionButton.Error">
+        <GradientStop Color="Orange" Offset="0.0" />
+        <GradientStop Color="DarkMagenta" Offset="0.3" />
+        <GradientStop Color="#FFAF0000" Offset="0.9" />
+    </RadialGradientBrush>
+    
+    <LinearGradientBrush StartPoint="0.3,0.1" EndPoint="0.8,0.8" x:Key="steel_brush">
+        <GradientStop Offset="0" Color="White" />
+        <GradientStop Offset="0.6" Color="LightGray" />
+        <GradientStop Offset="0.9" Color="DarkGray" />
+    </LinearGradientBrush>
+
+    <EllipseGeometry Center="150,150" RadiusX="100" RadiusY="100" x:Key="InteractionButton.Outer" />
+    <EllipseGeometry Center="150,150" RadiusX="80" RadiusY="80" x:Key="InteractionButton.Ellipse"/>
+
+    <DrawingGroup x:Key="simple_info">
+        <GeometryDrawing 
+                            Pen="{StaticResource ResourceKey=InteractionButton.Pen}" 
+                            Brush="{StaticResource ResourceKey=steel_brush}"
+                            Geometry="{StaticResource ResourceKey=InteractionButton.Outer}" />
+        <GeometryDrawing 
+                            Pen="{StaticResource ResourceKey=InteractionButton.Pen}" 
+                            Brush="{StaticResource ResourceKey=InteractionButton.Error}"
+                            Geometry="{StaticResource ResourceKey=InteractionButton.Ellipse}" />
+    </DrawingGroup>
+</ResourceDictionary>

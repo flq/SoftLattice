@@ -6,4 +6,5 @@
       <TextBox AutomationProperties.AutomationId="StyledTextbox" Style="{StaticResource PluginA.SetText}"></TextBox>
       <TextBox AutomationProperties.AutomationId="StyledTextboxFromLookup" Style="{StaticResource PluginA.SetTextFromLookup}"></TextBox>
     </StackPanel>
+    
 </UserControl>

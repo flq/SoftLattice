@@ -20,6 +20,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Themes", "Themes", "{E88E98
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftLattice.DarkTheme", "SoftLattice.DarkTheme\SoftLattice.DarkTheme.csproj", "{5C8D58FF-1E0F-4F87-89EC-20EDC05DE093}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftLattice.Enhancements", "SoftLattice.Enhancements\SoftLattice.Enhancements.csproj", "{AD97A59B-E969-4821-92A5-288D2BE91C76}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -80,6 +82,16 @@ Global
 		{5C8D58FF-1E0F-4F87-89EC-20EDC05DE093}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{5C8D58FF-1E0F-4F87-89EC-20EDC05DE093}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{5C8D58FF-1E0F-4F87-89EC-20EDC05DE093}.Release|x86.ActiveCfg = Release|Any CPU
+		{AD97A59B-E969-4821-92A5-288D2BE91C76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD97A59B-E969-4821-92A5-288D2BE91C76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD97A59B-E969-4821-92A5-288D2BE91C76}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{AD97A59B-E969-4821-92A5-288D2BE91C76}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{AD97A59B-E969-4821-92A5-288D2BE91C76}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{AD97A59B-E969-4821-92A5-288D2BE91C76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD97A59B-E969-4821-92A5-288D2BE91C76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD97A59B-E969-4821-92A5-288D2BE91C76}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{AD97A59B-E969-4821-92A5-288D2BE91C76}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{AD97A59B-E969-4821-92A5-288D2BE91C76}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -28,6 +28,7 @@ namespace SoftLattice.Core.Common
         internal void AddResource(string relativePath)
         {
             var dict = _resLoader.GetDictionary(relativePath);
+            _resourceService.RegisterDataTemplates(dict);
             _app.Resources.MergedDictionaries.Add(dict);
         }
 

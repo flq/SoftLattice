@@ -50,6 +50,7 @@
     <Compile Include="Messages\MessageAttribute.cs" />
     <Compile Include="Messages\ShutdownMsg.cs" />
     <Compile Include="Messages\StartupMsg.cs" />
+    <Compile Include="Resources\LatticeTemplateSelector.cs" />
     <Compile Include="Resources\ResourceLoader.cs" />
     <Compile Include="WpfPrimitivesExtensions.cs" />
   </ItemGroup>
