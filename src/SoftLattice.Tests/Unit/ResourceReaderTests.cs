@@ -15,7 +15,7 @@ namespace SoftLattice.Tests.Unit
         [TestFixtureSetUp]
         public void Given()
         {
-            var a = new Application();
+            if (Application.Current == null) new Application(); //Awesome
 
             reader = new ResourceLoader("PluginA".Load());
             service = new ResourceServices();
