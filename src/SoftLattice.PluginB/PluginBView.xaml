@@ -12,8 +12,8 @@
         <Button x:Name="StartError" Grid.Row="0">Start Attention Error</Button>
         <Button x:Name="StartWarning" Grid.Row="1">Start Attention Warning</Button>
         <Button x:Name="StartInfo" Grid.Row="2">Start Attention Info</Button>
-        <!--<StatusBar Grid.Row="3">
+        <StatusBar Grid.Row="3">
             <StatusBarItem Style="{StaticResource InteractionButton.Container}" cal:Bind.Model="InteractionsContainer" />
-        </StatusBar>-->
+        </StatusBar>
     </Grid>
 </UserControl>

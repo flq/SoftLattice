@@ -1,3 +1,4 @@
+using System;
 using NUnit.Framework;
 using StructureMap;
 using SoftLattice.Tests.Frame;
@@ -24,7 +25,13 @@ namespace SoftLattice.Tests.Thirdparty
         public void ForwardIsntWorking()
         {
             Assert.Throws<StructureMapException>(()=> cnt.GetInstance<IFa>());
-            
+        }
+
+        [Test]
+        public void WhatIsWithWith()
+        {
+            var dick = (Bar)cnt.With(new Baz {Message = "A"}).GetInstance(typeof (Bar));
+            dick.Message.ShouldBeEqualTo("A");
         }
     }
 
@@ -33,5 +40,30 @@ namespace SoftLattice.Tests.Thirdparty
     public interface IFo { }
     public interface IFa { }
 
-    
+    public class Bar
+    {
+        public Bar(Baz baz)
+        {
+            Message = baz.Message;
+        }
+
+        public string Message { get; set; }
+    }
+
+    public class Baz : Poo, IFoo
+    {
+        public Baz() : base(typeof(object))
+        {
+        }
+
+        public string Message { get; set; }
+    }
+
+    public class Poo
+    {
+        public Poo(Type bla)
+        {
+            
+        }
+    }
 }

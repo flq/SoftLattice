@@ -15,6 +15,7 @@ namespace SoftLattice.PluginB
         public void Access(ILatticeWiring wiring)
         {
             wiring.RegisterMessageListener(this);
+            wiring.AddResources(s=>s.Contains("resources"));
         }
 
         public void Handle(StartupMsg startup)

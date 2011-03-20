@@ -67,7 +67,7 @@
     <Style x:Key="InteractionButton.Container" TargetType="{x:Type ContentControl}">
         <Setter Property="Content">
             <Setter.Value>
-                <ItemsControl ItemsSource="{Binding Path=Interactions, Mode=OneWay}">
+                <ItemsControl ItemsSource="{Binding Path=Interactions, Mode=OneWay}" cal:Message.Attach="[Event Loaded] = [Action Start($source)]">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <StackPanel Orientation="Horizontal" />
@@ -75,7 +75,7 @@
                     </ItemsControl.ItemsPanel>
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <UI:InteractionButton DataContext="{Binding}" cal:Message.Attach="[Event Loaded] = [Action Start($source)]"/>
+                            <UI:InteractionButton DataContext="{Binding}" />
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>

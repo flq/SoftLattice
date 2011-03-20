@@ -20,7 +20,7 @@ namespace SoftLattice.Core.ApplicationShell
             if (message.ModelInstanceAvailable) // Already instantiated
                 return;
 
-            var obj = _container.GetInstance(message.ViewModelType);
+            var obj = _container.With(message).GetInstance(message.ViewModelType);
 
             if (obj == null) // SM could not instantiate the type for whatever reason
                 return;

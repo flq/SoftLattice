@@ -1,0 +1,6 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:SoftLattice.PluginB">
+    <DataTemplate x:Key="PluginB.InFoViewModelTemplate" DataType="{x:Type local:InfoViewModel}">
+        <Label Content="{Binding Message, Mode=OneWay}" Foreground="Black" />
+    </DataTemplate>
+</ResourceDictionary>

@@ -48,7 +48,6 @@
     <Compile Include="InteractionButton\InteractionButton.xaml.cs">
       <DependentUpon>InteractionButton.xaml</DependentUpon>
     </Compile>
-    <Compile Include="InteractionButton\InteractionButtonModel.cs" />
     <Compile Include="InteractionButton\InteractionButtonTemplateSelector.cs" />
     <Compile Include="InteractionButton\InteractionsContainer.cs" />
     <Compile Include="LatticeWire.cs" />

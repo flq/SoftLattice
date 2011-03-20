@@ -13,6 +13,9 @@ namespace SoftLattice.Enhancements
     /// </summary>
     public partial class InteractionButton : UserControl
     {
+        private DoubleAnimationBase makeVisible;
+        private DoubleAnimationBase makeInvisible;
+
         private const int MillisecondsToPopupClose = 50;
         private readonly object isOpenLock = new object();
         private volatile bool isOpen;
@@ -22,6 +25,8 @@ namespace SoftLattice.Enhancements
         public InteractionButton()
         {
             InitializeComponent();
+            makeVisible = new DoubleAnimation(0.0, 1.0, new Duration(TimeSpan.FromSeconds(0.5)));
+            makeInvisible = new DoubleAnimation(1.0, 0.0, new Duration(TimeSpan.FromSeconds(0.5)));
             popupCloseTimer = new Timer(onTimer,null, -1, -1);
             Loaded += onLoaded;
         }
@@ -31,10 +36,18 @@ namespace SoftLattice.Enhancements
             get { return (DoubleAnimationBase) TryFindResource("InteractionButton.GradientTimeline"); }
         }
 
+        public void TurnOff(object token, Action<object> continuation)
+        {
+            makeInvisible.Completed += (s, e) => continuation(token);
+            BeginAnimation(UIElement.OpacityProperty, makeInvisible);
+            
+        }
+
         private void onLoaded(object sender, RoutedEventArgs e)
         {
             var geometryDrawing = unfreezeGeometry();
             applyGradientAnimation(geometryDrawing);
+            BeginAnimation(UIElement.OpacityProperty, makeVisible);
         }
 
         private GeometryDrawing unfreezeGeometry()

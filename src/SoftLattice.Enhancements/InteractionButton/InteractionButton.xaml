@@ -1,10 +1,9 @@
 ﻿<UserControl x:Class="SoftLattice.Enhancements.InteractionButton"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:UI="clr-namespace:SoftLattice.Enhancements" 
-             xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro" mc:Ignorable="d">
+             xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro" 
+             xmlns:Lattice="clr-namespace:SoftLattice.Common.Resources;assembly=SoftLattice.Common"
+             Opacity="0.0">
     <UserControl.Resources>
         <!-- Used from code-behind, ignore resharper warning -->
         <ResourceDictionary>
@@ -25,14 +24,14 @@
                 </Border.LayoutTransform>
                 <ContentControl x:Name="popupContainer" Content="{Binding}">
                     <ContentControl.ContentTemplateSelector>
-                        <UI:InteractionButtonTemplateSelector />
+                        <Lattice:LatticeTemplateSelector />
                     </ContentControl.ContentTemplateSelector>
                 </ContentControl>
             </Border>
         </Popup>
         <Button x:Name="button" 
                 MouseEnter="onButtonMouseEnter" MouseLeave="onButtonMouseLeave" 
-                cal:Message.Attach="[Event Click] = [Action MainPush()]"
+                cal:Message.Attach="[Event Click] = [Action Clicked()]"
                 Margin="5 0" Padding="2">
             <Image Width="30" Height="30">
                 <Image.Source>

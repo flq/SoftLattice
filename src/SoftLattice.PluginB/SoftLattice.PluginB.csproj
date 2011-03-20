@@ -46,6 +46,8 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActivateInfoMsg.cs" />
+    <Compile Include="InfoViewModel.cs" />
     <Compile Include="LatticeWire.cs" />
     <Compile Include="PluginBViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -80,6 +82,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="PluginBView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
