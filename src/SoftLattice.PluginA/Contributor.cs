@@ -21,7 +21,7 @@ namespace SoftLattice.PluginA
 
         public void Handle(StartupMsg msg)
         {
-            _publish.Publish(new ActivatePluginMsg(typeof(PluginAEntryViewModel)));
+            _publish.Publish(new ActivatePluginMsg(typeof(PluginAEntryViewModel), "The Plugin A"));
         }
     }
 }

@@ -36,7 +36,7 @@
                 Margin="5 0" Padding="2">
             <Image Width="30" Height="30">
                 <Image.Source>
-                    <DrawingImage x:Name="img" Drawing="{DynamicResource ResourceKey=simple_info}" />
+                    <DrawingImage x:Name="img" Drawing="{DynamicResource ResourceKey=InteractionButton.ButtonImage}" />
                 </Image.Source>
             </Image>
         </Button>

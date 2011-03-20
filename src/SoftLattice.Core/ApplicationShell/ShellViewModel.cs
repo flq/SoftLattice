@@ -23,7 +23,7 @@ namespace SoftLattice.Core.ApplicationShell
         {
             return _bus.Observe<ActivatePluginMsg>()
                 .Where(msg => msg.ModelInstanceAvailable)
-                .SubscribeOnDispatcher()
+                .ObserveOnDispatcher()
                 .Subscribe(onViewActivationRequested);
         }
 
@@ -38,8 +38,9 @@ namespace SoftLattice.Core.ApplicationShell
             base.OnDeactivate(close);
         }
 
-        private void onViewActivationRequested(ActivateViewModelMsg msg)
+        private void onViewActivationRequested(ActivatePluginMsg msg)
         {
+            base.DisplayName = msg.PluginTitle;
             ActivateItem(msg.ViewModel);
         }
     }

@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.Windows;
 using Caliburn.Micro;
 using MemBus;
@@ -13,6 +14,7 @@ using SoftLattice.Core.Common;
 using StructureMap;
 using StructureMap.Configuration.DSL;
 using StructureMap.Graph;
+using System.Linq;
 
 namespace SoftLattice.Core.Startup
 {
@@ -41,6 +43,7 @@ namespace SoftLattice.Core.Startup
             ScanForHandlers();
             ScanForLatticeGroups();
             ScanForStartups();
+            ScanForOtherRegistries();
         }
 
         private void ScanForHandlers()
@@ -56,6 +59,11 @@ namespace SoftLattice.Core.Startup
         private void ScanForLatticeGroups()
         {
             ScanOverRelevantAssemblies(s => s.Convention<LatticeGroupRegistrationConvention>());
+        }
+
+        private void ScanForOtherRegistries()
+        {
+            ScanOverRelevantAssemblies(s => s.LookForRegistries());
         }
 
         private void ScanOverRelevantAssemblies(Action<IAssemblyScanner> scannerAction)
@@ -81,6 +89,7 @@ namespace SoftLattice.Core.Startup
             public void Accept(IConfigurableBus setup)
             {
                 setup.ConfigurePublishing(PublishingSerializedForMessage<ActivateViewModelMsg>);
+                
             }
 
             private static void PublishingSerializedForMessage<T>(IConfigurablePublishing obj)

@@ -44,6 +44,7 @@
     <Compile Include="ILatticeGroup.cs" />
     <Compile Include="ILatticeWiring.cs" />
     <Compile Include="IPublishMessage.cs" />
+    <Compile Include="Messages\ActivatePluginMsg.cs" />
     <Compile Include="Resources\IResourceServices.cs" />
     <Compile Include="IStartup.cs" />
     <Compile Include="Messages\ActivateViewModelMsg.cs" />

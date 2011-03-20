@@ -26,7 +26,10 @@ namespace SoftLattice.Core.Startup
 
         protected override object GetInstance(Type service, string key)
         {
-            return container.GetInstance(service, key);
+            if (service == null)
+                service = typeof (object);
+            var returnValue = container.GetInstance(service, key);
+            return returnValue;
         }
 
         protected override IEnumerable<object> GetAllInstances(Type service)

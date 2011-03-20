@@ -4,7 +4,7 @@ namespace SoftLattice.PluginA
 {
     public class PluginAEntryViewModel : Screen
     {
-        public PluginAEntryViewModel()
+        public PluginAEntryViewModel(IDependency dependency)
         {
             
         }

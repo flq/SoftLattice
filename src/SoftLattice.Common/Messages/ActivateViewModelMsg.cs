@@ -31,12 +31,4 @@ namespace SoftLattice.Common
             get { return ViewModel != null; }
         }
     }
-
-    [Message]
-    public class ActivatePluginMsg : ActivateViewModelMsg
-    {
-        public ActivatePluginMsg(Type viewModelType) : base(viewModelType)
-        {
-        }
-    }
 }

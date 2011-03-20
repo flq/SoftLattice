@@ -43,6 +43,5 @@ namespace SoftLattice.Tests.Integration.UI
             text.ShouldBeEqualTo("FromLookupResource");
         }
 
-
     }
 }

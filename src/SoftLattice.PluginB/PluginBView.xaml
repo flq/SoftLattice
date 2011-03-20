@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="SoftLattice.PluginB.PluginBView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+        <Button x:Name="StartError" Grid.Row="0">Start Attention Error</Button>
+        <Button x:Name="StartWarning" Grid.Row="1">Start Attention Warning</Button>
+        <Button x:Name="StartInfo" Grid.Row="2">Start Attention Info</Button>
+        <!--<StatusBar Grid.Row="3">
+            <StatusBarItem Style="{StaticResource InteractionButton.Container}" cal:Bind.Model="InteractionsContainer" />
+        </StatusBar>-->
+    </Grid>
+</UserControl>
