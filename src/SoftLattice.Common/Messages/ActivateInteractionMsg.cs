@@ -7,7 +7,7 @@ namespace SoftLattice.Common
     /// </summary>
     public enum InteractionKind
     {
-        Information,
+        Info,
         Warning,
         Error
     }
@@ -25,6 +25,11 @@ namespace SoftLattice.Common
         public ActivateInteractionMsg(Type interactionViewModelType, InteractionKind interactionKind) : base(interactionViewModelType)
         {
             _interactionKind = interactionKind;
+        }
+
+        public InteractionKind InteractionKind
+        {
+            get { return _interactionKind; }
         }
     }
 }

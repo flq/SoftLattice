@@ -5,7 +5,7 @@ namespace SoftLattice.PluginB
 {
     public class ActivateInfoMsg : ActivateInteractionMsg
     {
-        public ActivateInfoMsg() : base(typeof(InfoViewModel), InteractionKind.Information)
+        public ActivateInfoMsg() : base(typeof(InfoViewModel), InteractionKind.Info)
         {
             
         }

@@ -26,28 +26,29 @@
 
     <Pen Brush="Black" Thickness="1" x:Key="InteractionButton.Pen" />
 
-    <RadialGradientBrush x:Key="attentionbutton_info">
-        <GradientStop Color="LightBlue" Offset="0.0" />
-        <GradientStop Color="Blue" Offset="0.3" />
-        <GradientStop Color="Indigo" Offset="0.9" />
+    <RadialGradientBrush x:Key="InteractionButton.Info">
+        <GradientStop Color="#FF5BE238" Offset="0.0" />
+        <GradientStop Color="#FF278F29" Offset="0.485" />
+        <GradientStop Color="#FF14430B" Offset="1.0" />
     </RadialGradientBrush>
-    
+
     <RadialGradientBrush x:Key="InteractionButton.Warning">
-        <GradientStop Color="LightGreen" Offset="0.0" />
-        <GradientStop Color="LightGreen" Offset="0.3" />
-        <GradientStop Color="Green" Offset="0.9" />
+        <GradientStop Color="#FFE0ED12" Offset="0.0" />
+        <GradientStop Color="#FFB8B427" Offset="0.592" />
+        <GradientStop Color="#FF897F09" Offset="0.9" />
     </RadialGradientBrush>
-    
+
     <RadialGradientBrush x:Key="InteractionButton.Error">
-        <GradientStop Color="Orange" Offset="0.0" />
-        <GradientStop Color="DarkMagenta" Offset="0.3" />
-        <GradientStop Color="#FFAF0000" Offset="0.9" />
+        <GradientStop Color="#FFD46060" Offset="0.0" />
+        <GradientStop Color="#FCB41111" Offset="0.372" />
+        <GradientStop Color="#FF641313" Offset="0.784" />
     </RadialGradientBrush>
-    
-    <LinearGradientBrush StartPoint="0.3,0.1" EndPoint="0.8,0.8" x:Key="steel_brush">
-        <GradientStop Offset="0" Color="White" />
-        <GradientStop Offset="0.6" Color="LightGray" />
-        <GradientStop Offset="0.9" Color="DarkGray" />
+
+
+    <LinearGradientBrush x:Key="steel_brush" EndPoint="1,1" StartPoint="0,0" MappingMode="RelativeToBoundingBox" SpreadMethod="Reflect">
+        <GradientStop Color="#FF2F1919" Offset="0"/>
+        <GradientStop Color="#FFC9CE9E" Offset="0.576"/>
+        <GradientStop Color="#FF000000" Offset="1"/>
     </LinearGradientBrush>
 
     <EllipseGeometry Center="150,150" RadiusX="100" RadiusY="100" x:Key="InteractionButton.Outer" />
@@ -64,6 +65,18 @@
                             Geometry="{StaticResource ResourceKey=InteractionButton.Ellipse}" />
     </DrawingGroup>
 
+    <DataTemplate x:Key="InteractionButton.TemplateInfo">
+        <UI:InteractionButton DataContext="{Binding}" KindOfInteraction="Info" />
+    </DataTemplate>
+
+    <DataTemplate x:Key="InteractionButton.TemplateWarning">
+        <UI:InteractionButton DataContext="{Binding}" KindOfInteraction="Warning" />
+    </DataTemplate>
+
+    <DataTemplate x:Key="InteractionButton.TemplateError">
+        <UI:InteractionButton DataContext="{Binding}" KindOfInteraction="Error" />
+    </DataTemplate>
+
     <Style x:Key="InteractionButton.Container" TargetType="{x:Type ContentControl}">
         <Setter Property="Content">
             <Setter.Value>
@@ -73,11 +86,9 @@
                             <StackPanel Orientation="Horizontal" />
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <UI:InteractionButton DataContext="{Binding}" />
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.ItemTemplateSelector>
+                        <UI:InteractionButtonTemplateSelector />
+                    </ItemsControl.ItemTemplateSelector>
                 </ItemsControl>
             </Setter.Value>
         </Setter>

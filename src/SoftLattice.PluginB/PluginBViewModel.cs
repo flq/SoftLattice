@@ -13,12 +13,12 @@ namespace SoftLattice.PluginB
 
         public void StartError()
         {
-            //_publisher.Publish();
+            _publisher.Publish(new ActivateInteractionMsg(typeof(InfoViewModel), InteractionKind.Error));
         }
 
         public void StartWarning()
         {
-
+            _publisher.Publish(new ActivateInteractionMsg(typeof(InfoViewModel), InteractionKind.Warning));
         }
 
         public void StartInfo()

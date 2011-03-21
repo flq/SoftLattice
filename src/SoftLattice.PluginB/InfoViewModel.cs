@@ -7,7 +7,8 @@ namespace SoftLattice.PluginB
     {
         public InfoViewModel(ActivateViewModelMsg activateInfoMsg)
         {
-            Message = ((ActivateInfoMsg)activateInfoMsg).Message;
+            var msg = activateInfoMsg as ActivateInfoMsg;
+            Message = msg != null ? msg.Message : "No Message";
         }
 
         public string Message { get; private set; }

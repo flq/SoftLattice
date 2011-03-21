@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+using SoftLattice.Common;
 
 namespace SoftLattice.Enhancements
 {
@@ -13,8 +14,8 @@ namespace SoftLattice.Enhancements
     /// </summary>
     public partial class InteractionButton : UserControl
     {
-        private DoubleAnimationBase makeVisible;
-        private DoubleAnimationBase makeInvisible;
+        private readonly DoubleAnimationBase makeVisible;
+        private readonly DoubleAnimationBase makeInvisible;
 
         private const int MillisecondsToPopupClose = 50;
         private readonly object isOpenLock = new object();
@@ -30,6 +31,8 @@ namespace SoftLattice.Enhancements
             popupCloseTimer = new Timer(onTimer,null, -1, -1);
             Loaded += onLoaded;
         }
+
+        public InteractionKind KindOfInteraction { get; set; }
 
         public DoubleAnimationBase GradientAnimation
         {
@@ -52,7 +55,7 @@ namespace SoftLattice.Enhancements
 
         private GeometryDrawing unfreezeGeometry()
         {
-            var b = (Brush)TryFindResource("InteractionButton.Error");
+            var b = (Brush)TryFindResource("InteractionButton." + KindOfInteraction);
             var drawingGroup = (DrawingGroup) img.Drawing;
             var dgUnfrozen = drawingGroup.Clone();
             var geometryDrawing = ((GeometryDrawing)dgUnfrozen.Children[1]);

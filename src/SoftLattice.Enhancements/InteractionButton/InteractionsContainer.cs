@@ -40,6 +40,9 @@ namespace SoftLattice.Enhancements
                 return;
             if (_interactionModels.Contains(inBtn)) //Observed under certain circumstances that the msg comes twice, by changing the DataTemplate(!) of the used model. WTF!
                 return;
+
+            InteractionButtonTemplateSelector.RegisterRequiredInteractionKind(inBtn.GetHashCode(), message.InteractionKind);
+
             inBtn.Closed += OnButtonClosed;
             _interactionModels.Add(inBtn);
         }
@@ -47,14 +50,17 @@ namespace SoftLattice.Enhancements
         private void OnButtonClosed(object interactionViewModel, EventArgs e)
         {
             var button = FindGoverningInteractionButton(interactionViewModel);
-            button.TurnOff(interactionViewModel, vm => _interactionModels.Remove((IInteractionModel) vm));
+            if (button != null)
+              button.TurnOff(interactionViewModel, vm => _interactionModels.Remove((IInteractionModel) vm));
         }
 
         private InteractionButton FindGoverningInteractionButton(object interactionViewModel)
         {
             var panel = FindStackPanel();
-            var contentPresenter = panel.Children.OfType<FrameworkElement>().First(fe => fe.DataContext.Equals(interactionViewModel));
-            return (InteractionButton)VisualTreeHelper.GetChild(contentPresenter, 0);
+            var contentPresenter = panel.Children.OfType<FrameworkElement>().FirstOrDefault(fe => fe.DataContext.Equals(interactionViewModel));
+            if (contentPresenter != null)
+              return (InteractionButton)VisualTreeHelper.GetChild(contentPresenter, 0);
+            return null;
         }
 
         private StackPanel FindStackPanel()
