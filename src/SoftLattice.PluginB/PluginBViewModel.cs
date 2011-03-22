@@ -26,5 +26,15 @@ namespace SoftLattice.PluginB
         {
             _publisher.Publish(new ShowTextToUserMsg("This is an info!", InteractionKind.Info));
         }
+
+        public void StartActivity()
+        {
+            _publisher.Publish(new ActivityMsg("Ho HO HO!"));
+        }
+
+        public void EndActivity()
+        {
+            _publisher.Publish(new ActivityMsg());
+        }
     }
 }

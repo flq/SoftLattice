@@ -1,3 +1,4 @@
+using SoftLattice.Enhancements.Activity;
 using StructureMap.Configuration.DSL;
 
 namespace SoftLattice.Enhancements
@@ -7,6 +8,7 @@ namespace SoftLattice.Enhancements
         public RegisterDependencies()
         {
             For<object>().Use<InteractionsContainer>().Named("InteractionsContainer");
+            For<object>().Use<ActivityContainer>().Named("ActivityContainer");
         }
     }
 }

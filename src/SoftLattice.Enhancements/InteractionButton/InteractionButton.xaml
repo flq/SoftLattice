@@ -18,7 +18,7 @@
                     Background="#FFFFFFFF" 
                     BorderThickness="1,1,1,1" 
                     CornerRadius="8,8,8,8" 
-                    Padding="8" x:Name="popupBorder" Opacity="0.6" MouseEnter="onPopupMouseEnter" MouseLeave="onButtonMouseLeave">
+                    Padding="8" x:Name="popupBorder" Opacity="0.7" MouseEnter="onPopupMouseEnter" MouseLeave="onButtonMouseLeave">
                 <Border.LayoutTransform>
                     <ScaleTransform ScaleX="0" ScaleY="0" CenterX="0.5" CenterY="1" />
                 </Border.LayoutTransform>

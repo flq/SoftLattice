@@ -45,6 +45,9 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Activity\ActivityContainer.cs" />
+    <Compile Include="Behaviours\FadeOnVisibilityBehaviour.cs" />
+    <Compile Include="Controls\AnimatedGif.cs" />
     <Compile Include="InteractionButton\InteractionButton.xaml.cs">
       <DependentUpon>InteractionButton.xaml</DependentUpon>
     </Compile>
@@ -67,6 +70,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Activity\ActivityResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="InteractionButton\InteractionButton.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -77,6 +84,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\wait.gif" />
+  </ItemGroup>
   <Import Project="..\..\wraps\openwrap\build\OpenWrap.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

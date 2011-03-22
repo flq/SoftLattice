@@ -8,11 +8,21 @@
             <RowDefinition />
             <RowDefinition Height="40" />
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        
         <Button x:Name="StartError" Grid.Row="0">Start Attention Error</Button>
         <Button x:Name="StartWarning" Grid.Row="1">Start Attention Warning</Button>
         <Button x:Name="StartInfo" Grid.Row="2">Start Attention Info</Button>
-        <StatusBar Grid.Row="3" Background="Black">
+
+        <Button x:Name="StartActivity" Grid.Row="0" Grid.Column="1">Start Activity</Button>
+        <Button x:Name="EndActivity" Grid.Row="1" Grid.Column="1">End Activity</Button>
+        
+        <StatusBar Grid.Row="3" Grid.ColumnSpan="2" Background="Black">
             <StatusBarItem HorizontalAlignment="Left" Style="{StaticResource InteractionButton.Container}"  />
+            <StatusBarItem HorizontalAlignment="Right" Style="{StaticResource Activity.Container}"  />
         </StatusBar>
     </Grid>
 </UserControl>
