@@ -46,8 +46,6 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActivateInfoMsg.cs" />
-    <Compile Include="InfoViewModel.cs" />
     <Compile Include="LatticeWire.cs" />
     <Compile Include="PluginBViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -77,6 +75,11 @@
     <ProjectReference Include="..\SoftLattice.Common\SoftLattice.Common.csproj">
       <Project>{C142B92D-47BA-491F-8771-C10CAAB7FEA3}</Project>
       <Name>SoftLattice.Common</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\SoftLattice.Enhancements\SoftLattice.Enhancements.csproj">
+      <Project>{AD97A59B-E969-4821-92A5-288D2BE91C76}</Project>
+      <Name>SoftLattice.Enhancements</Name>
       <Private>False</Private>
     </ProjectReference>
   </ItemGroup>

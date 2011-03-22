@@ -1,17 +1,19 @@
-using System;
+﻿using System;
 using SoftLattice.Common;
+using SoftLattice.Enhancements.Messages;
 
-namespace SoftLattice.PluginB
+namespace SoftLattice.Enhancements.Models
 {
-    public class InfoViewModel : IInteractionModel
+    public class MessageToUserViewModel : IInteractionModel
     {
-        public InfoViewModel(ActivateViewModelMsg activateInfoMsg)
+        public MessageToUserViewModel(ActivateViewModelMsg activateInfoMsg)
         {
-            var msg = activateInfoMsg as ActivateInfoMsg;
+            var msg = activateInfoMsg as ShowTextToUserMsg;
             Message = msg != null ? msg.Message : "No Message";
         }
 
         public string Message { get; private set; }
+
         public void Clicked()
         {
             if (Closed != null)

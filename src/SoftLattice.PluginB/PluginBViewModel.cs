@@ -1,4 +1,5 @@
 using SoftLattice.Common;
+using SoftLattice.Enhancements.Messages;
 
 namespace SoftLattice.PluginB
 {
@@ -13,17 +14,17 @@ namespace SoftLattice.PluginB
 
         public void StartError()
         {
-            _publisher.Publish(new ActivateInteractionMsg(typeof(InfoViewModel), InteractionKind.Error));
+            _publisher.Publish(new ShowTextToUserMsg("This is an error", InteractionKind.Error));
         }
 
         public void StartWarning()
         {
-            _publisher.Publish(new ActivateInteractionMsg(typeof(InfoViewModel), InteractionKind.Warning));
+            _publisher.Publish(new ShowTextToUserMsg("This is a warning", InteractionKind.Warning));
         }
 
         public void StartInfo()
         {
-            _publisher.Publish(new ActivateInfoMsg { Message = "Hello World!"});
+            _publisher.Publish(new ShowTextToUserMsg("This is an info!", InteractionKind.Info));
         }
     }
 }
