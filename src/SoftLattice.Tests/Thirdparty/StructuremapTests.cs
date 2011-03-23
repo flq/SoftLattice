@@ -10,21 +10,22 @@ namespace SoftLattice.Tests.Thirdparty
     {
         private IContainer cnt;
 
-        [TestFixtureSetUp]
+        [SetUp]
         public void Given()
         {
             cnt = new Container(ce =>
                                     {
                                         ce.For<IFoo>().Use<Foo>();
-                                        ce.Forward<IFa, IFoo>();
-                                        ce.Forward<IFo, IFoo>();
+                                        ce.Forward<IFoo, IFa>();
+                                        ce.Forward<IFoo, IFo>();
                                     });
         }
 
         [Test]
-        public void ForwardIsntWorking()
+        public void ForwardWorks()
         {
-            Assert.Throws<StructureMapException>(()=> cnt.GetInstance<IFa>());
+            var i = cnt.GetInstance<IFa>();
+            i.ShouldBeOfType<Foo>();
         }
 
         [Test]
@@ -32,6 +33,16 @@ namespace SoftLattice.Tests.Thirdparty
         {
             var dick = (Bar)cnt.With(new Baz {Message = "A"}).GetInstance(typeof (Bar));
             dick.Message.ShouldBeEqualTo("A");
+        }
+
+        [Test]
+        public void ConfigureOverridesDefault()
+        {
+            var f = cnt.GetInstance<IFoo>();
+            f.ShouldBeOfType<Foo>();
+            cnt.Configure(e=>e.For<IFoo>().Use<NewFoo>());
+            f = cnt.GetInstance<IFoo>();
+            f.ShouldBeOfType<NewFoo>();
         }
     }
 
@@ -57,6 +68,11 @@ namespace SoftLattice.Tests.Thirdparty
         }
 
         public string Message { get; set; }
+    }
+
+    public class NewFoo : IFoo
+    {
+        
     }
 
     public class Poo

@@ -30,5 +30,12 @@ namespace SoftLattice.Common
         /// * The .xaml extension is removed
         /// </summary>
         void AddResources(Func<string, bool> pathPredicate);
+
+        /// <summary>
+        /// This functionality is related to the Bind.Model attached property of Caliburn.Micro. 
+        /// Register a ViewModel with SoftLattice that will be instantiated when the provided key 
+        /// is used with said attached property.
+        /// </summary>
+        void RegisterFloatingViewModel<ViewModel>(string modelKey);
     }
 }
