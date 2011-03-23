@@ -57,6 +57,7 @@
     <Compile Include="Integration\UI\app_run_context.cs" />
     <Compile Include="Integration\UI\when_app_starts.cs" />
     <Compile Include="Thirdparty\StructuremapTests.cs" />
+    <Compile Include="Unit\AppStoreTest.cs" />
     <Compile Include="Unit\ResourceReaderTests.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -71,6 +72,11 @@
     <ProjectReference Include="..\SoftLattice.Core\SoftLattice.Core.csproj">
       <Project>{16B55A43-858C-48CB-9684-C4D30C0C390D}</Project>
       <Name>SoftLattice.Core</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\SoftLattice.Enhancements\SoftLattice.Enhancements.csproj">
+      <Project>{AD97A59B-E969-4821-92A5-288D2BE91C76}</Project>
+      <Name>SoftLattice.Enhancements</Name>
       <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\SoftLattice.PluginA\SoftLattice.PluginA.csproj">

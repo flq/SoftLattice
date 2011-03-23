@@ -20,6 +20,11 @@
         <Button x:Name="StartActivity" Grid.Row="0" Grid.Column="1">Start Activity</Button>
         <Button x:Name="EndActivity" Grid.Row="1" Grid.Column="1">End Activity</Button>
         
+        <StackPanel Grid.Row="2" Grid.Column="1">
+            <TextBox x:Name="Value"></TextBox>
+            <Button x:Name="StoreValue">Save</Button>
+        </StackPanel>
+        
         <StatusBar Grid.Row="3" Grid.ColumnSpan="2" Background="Black">
             <StatusBarItem HorizontalAlignment="Left" Style="{StaticResource InteractionButton.Container}"  />
             <StatusBarItem HorizontalAlignment="Right" Style="{StaticResource Activity.Container}"  />

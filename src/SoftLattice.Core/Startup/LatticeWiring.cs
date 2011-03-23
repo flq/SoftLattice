@@ -40,6 +40,11 @@ namespace SoftLattice.Core.Startup
             _container.Configure(e=>e.For<object>().Use<ViewModel>().Named(modelKey));
         }
 
+        public void RegisterSingleService<SVC, IMPL>() where IMPL : SVC
+        {
+            _container.Configure(e => e.ForSingletonOf<SVC>().Use<IMPL>());
+        }
+
         internal PluginDescriptor ConstructedPluginDescriptor { get { return _pluginDescriptor;  } }
 
         internal void SetPluginAssembly(Assembly assembly)

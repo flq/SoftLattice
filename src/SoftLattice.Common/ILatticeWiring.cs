@@ -37,5 +37,10 @@ namespace SoftLattice.Common
         /// is used with said attached property.
         /// </summary>
         void RegisterFloatingViewModel<ViewModel>(string modelKey);
+
+        /// <summary>
+        /// Register a singleton service in the system. If the service has been defined beforehand, the new definition will overwrite it
+        /// </summary>
+        void RegisterSingleService<SVC, IMPL>() where IMPL : SVC;
     }
 }

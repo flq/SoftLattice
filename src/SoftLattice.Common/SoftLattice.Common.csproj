@@ -41,6 +41,7 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="IApplicationStorage.cs" />
     <Compile Include="ILatticeGroup.cs" />
     <Compile Include="ILatticeWiring.cs" />
     <Compile Include="IInteractionModel.cs" />
