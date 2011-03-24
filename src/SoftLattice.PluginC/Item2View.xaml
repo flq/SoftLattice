@@ -1,0 +1,7 @@
+﻿<UserControl x:Class="SoftLattice.PluginC.Item2View"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Border Padding="10" BorderBrush="Red" BorderThickness="4" Background="Black">
+        <Label x:Name="Message" />
+    </Border>
+</UserControl>

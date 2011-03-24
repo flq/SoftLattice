@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="SoftLattice.PluginC.PluginCView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        
+        <ContentControl x:Name="AreaA" Grid.Row="0" Grid.Column="0" />
+        <ContentControl x:Name="AreaB" Grid.Row="0" Grid.Column="1" />
+        
+        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.RowSpan="2">
+            <Button x:Name="LoadItem1IntoAreaA" Grid.Row="3">Item1 To AreaA</Button>
+            <Button x:Name="LoadItem2IntoAreaB" Grid.Row="1">Item2 To Area B</Button>
+        </StackPanel>        
+        
+    </Grid>
+</UserControl>
