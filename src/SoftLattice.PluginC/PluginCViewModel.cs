@@ -1,34 +1,30 @@
-﻿using System.ComponentModel;
+﻿using System;
 using SoftLattice.Common;
+using SoftLattice.Enhancements.Models;
 
 namespace SoftLattice.PluginC
 {
-    public class PluginCViewModel : INotifyPropertyChanged
+    public class PluginCViewModel : TemplatingConductor
     {
         private readonly IPublishMessage _publisher;
 
-        public PluginCViewModel(IPublishMessage publisher)
+
+        public PluginCViewModel(IObservable<ActivateRegionMsg> activateRegionMessages, IPublishMessage publisher) : base(activateRegionMessages, "PluginC")
         {
             _publisher = publisher;
         }
 
-        public object AreaA { get; set; }
-        public object AreaB { get; set; }
+        public object AreaA { get; private set; }
+        public object AreaB { get; private set; }
 
         public void LoadItem1IntoAreaA()
         {
-            AreaA = new Item1ViewModel();
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs("AreaA"));
+            _publisher.Publish(new ActivatePluginCRegion("AreaA", typeof(Item1ViewModel)));
         }
 
         public void LoadItem2IntoAreaB()
         {
-            AreaB = new Item2ViewModel();
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs("AreaB"));
+            _publisher.Publish(new ActivatePluginCRegion("AreaB", typeof (Item2ViewModel)));
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

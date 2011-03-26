@@ -31,10 +31,5 @@ namespace SoftLattice.Core.Common
                 scanner.ScanLatticePluginAssemblies();
             }
         }
-
-        public static void Delegate<FROM,TO>(this Registry registry) where TO : FROM
-        {
-            registry.For<FROM>().Use(ctx => ctx.GetInstance<TO>());
-        }
     }
 }

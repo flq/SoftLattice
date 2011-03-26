@@ -44,6 +44,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActivatePluginCRegion.cs" />
     <Compile Include="Item2ViewModel.cs" />
     <Compile Include="Item1ViewModel.cs" />
     <Compile Include="LatticeWire.cs" />
@@ -72,6 +73,10 @@
       <Project>{C142B92D-47BA-491F-8771-C10CAAB7FEA3}</Project>
       <Name>SoftLattice.Common</Name>
       <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\SoftLattice.Enhancements\SoftLattice.Enhancements.csproj">
+      <Project>{AD97A59B-E969-4821-92A5-288D2BE91C76}</Project>
+      <Name>SoftLattice.Enhancements</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="..\..\wraps\openwrap\build\OpenWrap.CSharp.targets" />

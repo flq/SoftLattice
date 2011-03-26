@@ -22,7 +22,6 @@ namespace SoftLattice.Core.ApplicationShell
         private IDisposable setupObserver()
         {
             return _bus.Observe<ActivatePluginMsg>()
-                .Where(msg => msg.ModelInstanceAvailable)
                 .ObserveOnDispatcher()
                 .Subscribe(onViewActivationRequested);
         }

@@ -58,6 +58,7 @@
     <Compile Include="LatticeWire.cs" />
     <Compile Include="Messages\ShowTextToUserMsg.cs" />
     <Compile Include="Models\MessageToUserViewModel.cs" />
+    <Compile Include="Models\TemplatingConductor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

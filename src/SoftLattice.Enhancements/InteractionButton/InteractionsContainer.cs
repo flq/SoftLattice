@@ -28,7 +28,7 @@ namespace SoftLattice.Enhancements
         {
             _interactionModelsReadOnly = new ReadOnlyObservableCollection<IInteractionModel>(_interactionModels);
 
-            activateInteractionObservable.Where(msg => msg.ModelInstanceAvailable)
+            activateInteractionObservable
                 .ObserveOnDispatcher()
                 .Subscribe(OnAttentionRequested);
         }

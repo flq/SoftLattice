@@ -1,6 +1,6 @@
 using System;
-using System.Diagnostics;
 using System.Windows;
+using System.Windows.Threading;
 using Caliburn.Micro;
 using MemBus;
 using MemBus.Configurators;
@@ -14,7 +14,6 @@ using SoftLattice.Core.Common;
 using StructureMap;
 using StructureMap.Configuration.DSL;
 using StructureMap.Graph;
-using System.Linq;
 
 namespace SoftLattice.Core.Startup
 {
@@ -31,14 +30,16 @@ namespace SoftLattice.Core.Startup
             ForSingletonOf<KnownPluginDescriptors>().Use<KnownPluginDescriptors>();
             ForSingletonOf<ViewActivationPump>().Use<ViewActivationPump>();
             ForSingletonOf<IResourceServices>().Use<ResourceServices>();
+            ForSingletonOf<IDispatchServices>().Use<WpfDispatchServices>();
+            
             For<Application>().Use(Application.Current);
-
             For<IPublishMessage>().Use<PublishMessageImpl>();
 
             For(typeof(IObservable<>)).Use(typeof(MessageObservable<>));
             
-            this.Delegate<IPublisher,IBus>();
-            this.Delegate<ISubscriber, IBus>();
+            Forward<IBus,IPublisher>();
+            Forward<IBus,ISubscriber>();
+            Forward<Application,DispatcherObject>();
 
             ScanForHandlers();
             ScanForLatticeGroups();
@@ -80,21 +81,22 @@ namespace SoftLattice.Core.Startup
             return BusSetup.StartWith<AsyncRichClientFrontend>(
                 new IoCSupport(new StructuremapBridge(() => ObjectFactory.Container)))
                 .Apply<FlexibleSubscribeAdapter>(c=>c.ByMethodName("Handle").ByInterface(typeof(IHandles<>)))
-                .Apply<PublisherConfiguration>()
+                .Apply<ActivateViewModelMessagesGoThroughViewActivationPump>()
                 .Construct();
         }
 
-        private class PublisherConfiguration : ISetup<IConfigurableBus>
+        private class ActivateViewModelMessagesGoThroughViewActivationPump : ISetup<IConfigurableBus>
         {
             public void Accept(IConfigurableBus setup)
             {
-                setup.ConfigurePublishing(PublishingSerializedForMessage<ActivateViewModelMsg>);
-                
+                setup.ConfigurePublishing(PublishPipelineForViewActivationMessages);
             }
 
-            private static void PublishingSerializedForMessage<T>(IConfigurablePublishing obj)
+            private static void PublishPipelineForViewActivationMessages(IConfigurablePublishing obj)
             {
-                obj.MessageMatch(mi=>mi.IsType<T>()).PublishPipeline(new SequentialPublisher());
+                obj.MessageMatch(mi=>mi.IsType<ActivateViewModelMsg>()).PublishPipeline(
+                     new DeferredPublishPipelineMember<ViewActivationPump>(ObjectFactory.GetInstance<ViewActivationPump>), 
+                     new SequentialPublisher());
             }
         }
     }
