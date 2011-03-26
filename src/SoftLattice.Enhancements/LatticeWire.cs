@@ -12,6 +12,7 @@ namespace SoftLattice.Enhancements
             w.RegisterFloatingViewModel<InteractionsContainer>("InteractionsContainer");
             w.RegisterFloatingViewModel<ActivityContainer>("ActivityContainer");
             w.RegisterSingleService<IApplicationStorage, XmlApplicationStore>();
+            w.RegisterSingleService<IAppConfiguration, ConfigurationSettingsAppConfiguration>();
         }
     }
 }

@@ -74,7 +74,6 @@
     <Compile Include="ApplicationShell\ViewActivationPump.cs" />
     <Compile Include="Common\AssemblyLoader.cs" />
     <Compile Include="Common\DeferredPublishPipelineMember.cs" />
-    <Compile Include="Common\IDispatchServices.cs" />
     <Compile Include="Common\MessageSender.cs" />
     <Compile Include="Common\PluginDescriptor.cs" />
     <Compile Include="Common\KnownPluginDescriptors.cs" />

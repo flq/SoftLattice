@@ -2,6 +2,13 @@ namespace SoftLattice.PluginC
 {
     public class Item2ViewModel
     {
-        public string Message { get { return "Hello Chums from Item 2"; } }
+        private readonly ConfigValues _values;
+
+        public Item2ViewModel(ConfigValues values)
+        {
+            _values = values;
+        }
+
+        public string Message { get { return _values.SoulSource; } }
     }
 }

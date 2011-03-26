@@ -68,11 +68,4 @@ namespace SoftLattice.Tests.Unit
             dateTime.ShouldBeEqualTo(new DateTime(2011,1,1));
         }
     }
-
-
-    public class Values
-    {
-        public string Name { get; set; }
-        public decimal Number { get; set; }
-    }
 }

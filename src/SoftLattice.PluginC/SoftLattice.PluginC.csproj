@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActivatePluginCRegion.cs" />
+    <Compile Include="ConfigValues.cs" />
     <Compile Include="Item2ViewModel.cs" />
     <Compile Include="Item1ViewModel.cs" />
     <Compile Include="LatticeWire.cs" />

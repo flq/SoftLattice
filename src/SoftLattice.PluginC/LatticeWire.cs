@@ -16,6 +16,7 @@ namespace SoftLattice.PluginC
         {
             wiring.RegisterMessageListener(this);
             wiring.AddResources(s=>s.Contains("resources"));
+            wiring.GetFromAppConfig<ConfigValues>();
         }
 
         public void Handle(StartupMsg startup)

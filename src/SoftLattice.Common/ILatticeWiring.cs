@@ -42,5 +42,13 @@ namespace SoftLattice.Common
         /// Register a singleton service in the system. If the service has been defined beforehand, the new definition will overwrite it
         /// </summary>
         void RegisterSingleService<SVC, IMPL>() where IMPL : SVC;
+
+        /// <summary>
+        /// Register a type whose deserialized form is contained in the application configuration file. This plays well with the 
+        /// ConfigReader contained in SoftLattice.Enhancements. Everytime you state a dependency to this object, it will be obtained
+        /// by deserializing the XmlSerialized form of the object. Note that a valid implementation of <see cref="IAppConfiguration"/>
+        /// is necessary. If you use SoftLattice.Enhancements, you will auotmatically have one that accesses the application config
+        /// </summary>
+        void GetFromAppConfig<T>();
     }
 }

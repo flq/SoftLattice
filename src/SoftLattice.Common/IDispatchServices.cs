@@ -1,7 +1,7 @@
 using System;
 using System.Windows.Threading;
 
-namespace SoftLattice.Core.Common
+namespace SoftLattice.Common
 {
     public interface IDispatchServices
     {

@@ -45,6 +45,11 @@ namespace SoftLattice.Core.Startup
             _container.Configure(e => e.ForSingletonOf<SVC>().Use<IMPL>());
         }
 
+        public void GetFromAppConfig<T>()
+        {
+            _container.Configure(e => e.ForSingletonOf<T>().Use(ctx=>ctx.GetInstance<IAppConfiguration>().GetSection<T>()));
+        }
+
         internal PluginDescriptor ConstructedPluginDescriptor { get { return _pluginDescriptor;  } }
 
         internal void SetPluginAssembly(Assembly assembly)

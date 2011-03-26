@@ -58,7 +58,9 @@
     <Compile Include="Integration\UI\when_app_starts.cs" />
     <Compile Include="Thirdparty\StructuremapTests.cs" />
     <Compile Include="Unit\AppStoreTest.cs" />
+    <Compile Include="Unit\ConfigReaderTests.cs" />
     <Compile Include="Unit\ResourceReaderTests.cs" />
+    <Compile Include="Unit\Values.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
@@ -84,6 +86,9 @@
       <Name>SoftLattice.PluginA</Name>
       <Private>False</Private>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="..\..\wraps\openwrap\build\OpenWrap.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
