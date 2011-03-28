@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Reflection;
 using System.Windows;
 using SoftLattice.Common.Resources;
@@ -12,6 +13,7 @@ namespace SoftLattice.Core.Common
         private readonly Application _app;
         private Assembly _assembly;
         private ResourceLoader _resLoader;
+        private readonly List<Type> _subscriberTypes = new List<Type>();
 
         public PluginDescriptor(IResourceServices resourceService, Application app)
         {
@@ -39,5 +41,12 @@ namespace SoftLattice.Core.Common
                 AddResource(path + ".xaml");
             }
         }
+
+        public void AddMessageListenerType(Type subscriberType)
+        {
+            _subscriberTypes.Add(subscriberType);
+        }
+
+        public IEnumerable<Type> MessageListenerTypes { get { return _subscriberTypes; } }
     }
 }

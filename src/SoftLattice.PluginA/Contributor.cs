@@ -14,9 +14,11 @@ namespace SoftLattice.PluginA
         public void Access(ILatticeWiring wiring)
         {
             wiring.RegisterMessageListener(MessageListener.Instance);
+            wiring.RegisterMessageListener<AMessageHandler>();
             wiring.RegisterMessageListener(this);
             wiring.AddResource("Plugin.xaml");
             wiring.AddResources(path=>path.StartsWith("lookupresources"));
+            
         }
 
         public void Handle(StartupMsg msg)

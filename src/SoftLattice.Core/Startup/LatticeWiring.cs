@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.Reflection;
 using MemBus;
 using SoftLattice.Common;
@@ -55,6 +56,11 @@ namespace SoftLattice.Core.Startup
         internal void SetPluginAssembly(Assembly assembly)
         {
             _pluginDescriptor.SetPluginAssembly(assembly);
+        }
+        
+        public void RegisterMessageListener<T>()
+        {
+            _pluginDescriptor.AddMessageListenerType(typeof (T));
         }
     }
 }

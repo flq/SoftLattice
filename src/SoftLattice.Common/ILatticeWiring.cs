@@ -16,6 +16,12 @@ namespace SoftLattice.Common
         void RegisterMessageListener(object listener);
 
         /// <summary>
+        /// Much like you providing an instance, this overload passes the responsibility to the container
+        /// to instantiate the type and then register it with the bus.
+        /// </summary>
+        void RegisterMessageListener<T>();
+
+        /// <summary>
         /// Allows your plugin to add resources to the SoftLattice runtime. Please consider that SoftLattice may be running
         /// several plugins, hence put yourself in the habit of prefixing your resource keys with some identifier related to your plugin
         /// to avoid naming collisions.

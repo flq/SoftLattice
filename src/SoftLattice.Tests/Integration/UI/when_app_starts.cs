@@ -43,5 +43,11 @@ namespace SoftLattice.Tests.Integration.UI
             text.ShouldBeEqualTo("FromLookupResource");
         }
 
+        [Test]
+        public void marker_message_for_floating_listener_was_received()
+        {
+            MessageListener.Instance.Contains<MarkerMessageForFloatingListenerMsg>().ShouldBeTrue();
+        }
+
     }
 }

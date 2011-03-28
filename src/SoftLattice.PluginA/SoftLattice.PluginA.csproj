@@ -46,6 +46,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AMessageHandler.cs" />
     <Compile Include="Contributor.cs" />
     <Compile Include="Dependency.cs" />
     <Compile Include="IDependency.cs" />
